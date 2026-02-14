@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 For My One & Only - xyz 💝</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        /* Cursor Trail Effect */
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fade-out 1s forwards;
+        }
+
+        @keyframes fade-out {
+            to {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(255, 107, 157, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ff6b9d;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            background: rgba(255, 107, 157, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: rgba(255, 107, 157, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 107, 157, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .music-player:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+        }
+
+        .music-icon {
+            width: 30px;
+            height: 30px;
+            animation: rotate 3s linear infinite paused;
+        }
+
+        .music-icon.playing {
+            animation-play-state: running;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Landing Page with Countdown */
+        #home {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ffb3d9, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .countdown {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .countdown-item span {
+            display: block;
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .countdown-item p {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, #ff6b9d, #c06c84);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        /* 3D Photo Carousel */
+        #carousel {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .carousel-container {
+            perspective: 1200px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .carousel-3d {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate3d 20s linear infinite;
+        }
+
+        .carousel-3d.paused {
+            animation-play-state: paused;
+        }
+
+        @keyframes rotate3d {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            left: 50%;
+            top: 0;
+            transform-origin: center;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Love Messages in Bottles */
+        #messages {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .bottles-container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .bottle {
+            width: 200px;
+            height: 300px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .bottle:hover {
+            transform: translateY(-20px) rotate(5deg);
+        }
+
+        .bottle-svg {
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .bottle.opened .bottle-svg {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .message-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            max-width: 500px;
+            width: 90%;
+            transition: transform 0.3s;
+            color: #333;
+        }
+
+        .message-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .message-popup h3 {
+            color: #f5576c;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f5576c;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            background: #d4476c;
+        }
+
+        /* Interactive Memory Game */
+        #game {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 120px);
+            grid-gap: 1rem;
+            perspective: 1000px;
+        }
+
+        .memory-card {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
+
+        .memory-card.flip {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card-back {
+            background: white;
+            transform: rotateY(180deg);
+        }
+
+        /* Fireworks Effect */
+        .firework {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Love Calculator */
+        #calculator {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .calculator-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            color: #333;
+        }
+
+        .calculator-box h2 {
+            color: #f5576c;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+        }
+
+        .love-meter {
+            width: 100%;
+            height: 40px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .love-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b9d, #f5576c);
+            width: 0%;
+            transition: width 2s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Constellation of Love */
+        #constellation {
+            background: #0a0e27;
+            position: relative;
+        }
+
+        .stars-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Timeline Enhancement */
+        #story {
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+        }
+
+        .timeline {
+            max-width: 1000px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #ff6b9d, #f5576c);
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        .timeline-item:nth-child(even) {
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 45%;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 55%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 5px solid #f5576c;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(245, 87, 108, 0.5);
+            z-index: 1;
+        }
+
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+            background: #f5576c;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(245, 87, 108, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(245, 87, 108, 0);
+            }
+        }
+
+        /* Enhanced Reasons Grid */
+        #reasons {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(100%);
+            transition: transform 0.3s;
+            z-index: 0;
+        }
+
+        .reason-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .reason-card:hover {
+            transform: translateY(-15px) rotate(3deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .reason-card:hover * {
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reason-number {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #ff6b9d, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Video Message Section */
+        #video {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .video-container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.3), rgba(197, 108, 240, 0.3));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Letter Enhancement */
+        #letter {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .letter-container {
+            max-width: 800px;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            position: relative;
+            color: #333;
+            border: 10px solid #fff;
+            box-shadow: 0 0 0 15px rgba(245, 87, 108, 0.2);
+        }
+
+        .letter-container::before {
+            content: '💌';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        /* Confetti Button */
+        .confetti-btn {
+            position: fixed;
+            bottom: 6rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b9d, #c06c84);
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .confetti-btn:hover {
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .countdown {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item span {
+                font-size: 2rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-right: 0 !important;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .memory-game {
+                grid-template-columns: repeat(2, 120px);
+            }
+            
+            .carousel-item {
+                width: 250px;
+                height: 350px;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-links">
+            <a href="#home">🏠 Home</a>
+            <a href="#story">📖 Story</a>
+            <a href="#carousel">📸 Photos</a>
+            <a href="#messages">💌 Messages</a>
+            <a href="#reasons">💕 Reasons</a>
+            <a href="#game">🎮 Game</a>
+            <a href="#constellation">⭐ Stars</a>
+            <a href="#video">🎥 Video</a>
+            <a href="#calculator">💗 Love Test</a>
+            <a href="#letter">✉️ Letter</a>
+        </div>
+    </nav>
+
+    <!-- Music Player -->
+    <div class="music-player" id="music-player">
+        <div class="music-icon" id="music-icon">🎵</div>
+        <span id="music-status">Play Music</span>
+    </div>
+
+    <!-- Confetti Button -->
+    <button class="confetti-btn" id="confetti-btn" title="Celebrate!">🎉</button>
+
+    <!-- Home Section with Countdown -->
+    <section id="home" class="section">
+        <div class="hero-content">
+            <h1>Happy Valentine's Day, xyz! 💝</h1>
+            <p style="font-size: 1.5rem; margin: 1rem 0;">Time we've been together:</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span id="days">0</span>
+                    <p>Days</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">0</span>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">0</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">0</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+            <p style="font-size: 1.2rem; margin: 2rem 0; opacity: 0.9;">Every moment with you is a treasure ✨</p>
+            <a href="#story" class="btn">Begin Our Journey 💖</a>
+        </div>
+    </section>
+
+    <!-- Our Story Timeline -->
+    <section id="story" class="section">
+        <div class="timeline">
+            <h2 class="section-title">Our Beautiful Story 📖</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 style="color: #f5576c; font-family: 'Playfair Display', serif; font-size: 1.8rem;">The First Meeting</h3>
+                    <p style="color: #666; line-height: 1.8;">The moment I first saw you, time stopped. Your smile, your eyes, your laugh - everything about you captured my heart instantly. I knew right then that you were someone special.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 style="color: #f5576c; font-family: 'Playfair Display', serif; font-size: 1.8rem;">Our First Date</h3>
+                    <p style="color: #666; line-height: 1.8;">The butterflies, the nervous excitement, the endless conversation that flowed so naturally. That day, I realized I wanted to spend every day getting to know you better.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 style="color: #f5576c; font-family: 'Playfair Display', serif; font-size: 1.8rem;">Falling Deeper</h3>
+                    <p style="color: #666; line-height: 1.8;">Every shared laugh, every late-night conversation, every moment together made me fall more deeply in love with you. You became my best friend and so much more.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 style="color: #f5576c; font-family: 'Playfair Display', serif; font-size: 1.8rem;">Today & Forever</h3>
+                    <p style="color: #666; line-height: 1.8;">Here we are, stronger than ever. You are my present and my future. I promise to love you more with each passing day. Forever starts now.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Photo Carousel -->
+    <section id="carousel" class="section">
+        <div style="width: 100%;">
+            <h2 class="section-title">Our Precious Moments 📸</h2>
+            <div class="carousel-container">
+                <div class="carousel-3d" id="carousel-3d">
+                    <!-- Photos will be positioned in 3D space -->
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; opacity: 0.9;">
+                Click on the carousel to pause/play rotation ⏸️▶️
+            </p>
+        </div>
+    </section>
+
+    <!-- Love Messages in Bottles -->
+    <section id="messages" class="section">
+        <div style="width: 100%;">
+            <h2 class="section-title" style="color: #333;">Messages of Love 💌</h2>
+            <p style="text-align: center; margin-bottom: 3rem; font-size: 1.2rem; color: #666;">Click on each bottle to reveal a special message</p>
+            <div class="bottles-container">
+                <div class="bottle" data-message="0">
+                    <svg class="bottle-svg" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="35" y="20" width="30" height="10" fill="#8B4513" rx="2"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="#87CEEB" opacity="0.6"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="none" stroke="#4682B4" stroke-width="2"/>
+                        <text x="50" y="80" font-size="30" text-anchor="middle" fill="#fff">💌</text>
+                    </svg>
+                </div>
+                <div class="bottle" data-message="1">
+                    <svg class="bottle-svg" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="35" y="20" width="30" height="10" fill="#8B4513" rx="2"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="#FFB6C1" opacity="0.6"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="none" stroke="#FF69B4" stroke-width="2"/>
+                        <text x="50" y="80" font-size="30" text-anchor="middle" fill="#fff">💖</text>
+                    </svg>
+                </div>
+                <div class="bottle" data-message="2">
+                    <svg class="bottle-svg" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="35" y="20" width="30" height="10" fill="#8B4513" rx="2"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="#DDA0DD" opacity="0.6"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="none" stroke="#9370DB" stroke-width="2"/>
+                        <text x="50" y="80" font-size="30" text-anchor="middle" fill="#fff">💝</text>
+                    </svg>
+                </div>
+                <div class="bottle" data-message="3">
+                    <svg class="bottle-svg" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="35" y="20" width="30" height="10" fill="#8B4513" rx="2"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="#F0E68C" opacity="0.6"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="none" stroke="#DAA520" stroke-width="2"/>
+                        <text x="50" y="80" font-size="30" text-anchor="middle" fill="#fff">💕</text>
+                    </svg>
+                </div>
+                <div class="bottle" data-message="4">
+                    <svg class="bottle-svg" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="35" y="20" width="30" height="10" fill="#8B4513" rx="2"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="#98FB98" opacity="0.6"/>
+                        <path d="M 40 30 L 40 120 Q 40 140 50 140 Q 60 140 60 120 L 60 30 Z" fill="none" stroke="#90EE90" stroke-width="2"/>
+                        <text x="50" y="80" font-size="30" text-anchor="middle" fill="#fff">💗</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Popup -->
+    <div class="message-popup" id="message-popup">
+        <button class="close-btn" id="close-popup">×</button>
+        <h3 id="popup-title">Message for You</h3>
+        <p id="popup-message" style="line-height: 1.8; font-size: 1.1rem;"></p>
+    </div>
+
+    <!-- Reasons Why I Love You -->
+    <section id="reasons" class="section">
+        <div style="width: 100%;">
+            <h2 class="section-title" style="color: #333;">∞ Reasons Why I Love You 💕</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-number">01</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Your Beautiful Smile</h3>
+                    <p style="line-height: 1.6;">Your smile lights up my entire world and makes everything better, no matter how dark my day has been.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">02</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Your Kindness</h3>
+                    <p style="line-height: 1.6;">The way you care for others with such genuine compassion inspires me to be a better person every day.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">03</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Your Laughter</h3>
+                    <p style="line-height: 1.6;">Your laugh is the most beautiful sound in the world. I could listen to it forever and never get tired.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">04</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Your Intelligence</h3>
+                    <p style="line-height: 1.6;">The way your brilliant mind works amazes me. I love how you see the world and share your thoughts with me.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">05</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Your Support</h3>
+                    <p style="line-height: 1.6;">You believe in me even when I don't believe in myself. Your encouragement gives me strength.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">06</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Your Eyes</h3>
+                    <p style="line-height: 1.6;">I get lost in your eyes every time I look at you. They tell stories that words could never express.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">07</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Your Strength</h3>
+                    <p style="line-height: 1.6;">Your resilience and courage in facing life's challenges inspire me. You're stronger than you know.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">08</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Your Uniqueness</h3>
+                    <p style="line-height: 1.6;">You are one of a kind. There's no one else like you, and that makes you absolutely irreplaceable.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">∞</div>
+                    <h3 style="margin: 1rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Simply Being YOU</h3>
+                    <p style="line-height: 1.6;">I could list infinite reasons, but the truth is simple: I love you for being exactly who you are.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Matching Game -->
+    <section id="game" class="section">
+        <div style="text-align: center;">
+            <h2 class="section-title" style="color: #333;">Love Memory Game 🎮</h2>
+            <p style="color: #666; font-size: 1.2rem; margin-bottom: 1rem;">Match the hearts to reveal a special message!</p>
+            <p style="color: #999; font-size: 0.9rem; margin-bottom: 2rem;">Tap/click the cards to find matching pairs ❤️</p>
+            <div class="memory-game" id="memory-game"></div>
+            <p id="game-message" style="margin-top: 2rem; font-size: 1.3rem; color: #f5576c; min-height: 40px; font-weight: bold;"></p>
+            <button class="btn" id="reset-game" style="margin-top: 2rem; display: none;">Play Again? 🔄</button>
+        </div>
+    </section>
+
+    <!-- Constellation of Love -->
+    <section id="constellation" class="section">
+        <canvas class="stars-canvas" id="stars-canvas"></canvas>
+        <div style="text-align: center; position: relative; z-index: 10;">
+            <h2 class="section-title">Our Constellation of Love ⭐</h2>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; line-height: 1.8;">
+                Like stars in the sky, our love connects us across any distance. Each star represents a moment we've shared, shining bright in the universe of our love.
+            </p>
+            <p style="margin-top: 2rem; font-size: 1.1rem; opacity: 0.8;">Move your cursor to create new stars ✨</p>
+        </div>
+    </section>
+
+    <!-- Video Message Section -->
+    <section id="video" class="section">
+        <div class="video-container">
+            <h2 class="section-title">A Special Message For You 🎥</h2>
+            <div class="video-placeholder" id="video-placeholder">
+                <div style="text-align: center;">
+                    <div style="font-size: 5rem;">▶️</div>
+                    <p style="font-size: 1.2rem; margin-top: 1rem;">Click to watch my video message</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">(Add your video link or embed code)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Calculator -->
+    <section id="calculator" class="section">
+        <div class="calculator-box">
+            <h2 style="text-align: center; font-size: 2.5rem;">Love Compatibility Calculator 💗</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 1rem;">Our love is made of two hearts beating as one!</p>
+            <p style="text-align: center; color: #f5576c; margin-bottom: 2rem; font-weight: bold;">My 50% is already here... now add yours! 💕</p>
+            <div class="love-meter">
+                <div class="love-fill" id="love-fill" style="width: 50%;">
+                    <span id="love-percentage">50%</span>
+                </div>
+            </div>
+            <p style="text-align: center; color: #999; margin: 1rem 0; font-size: 0.9rem;">
+                <span style="color: #ff6b9d;">━━━━━ My Love (50%)</span> 
+                <span style="color: #ccc;"> + </span>
+                <span style="color: #ddd;">Your Love (? %)</span>
+            </p>
+            <button class="btn" id="calculate-btn" style="width: 100%;">Add Your Love 💖</button>
+            <p id="love-result" style="text-align: center; font-size: 1.3rem; color: #f5576c; min-height: 60px; font-weight: bold; line-height: 1.6;"></p>
+        </div>
+    </section>
+
+    <!-- Love Letter -->
+    <section id="letter" class="section">
+        <div class="letter-container">
+            <div style="line-height: 2; font-size: 1.1rem;">
+                <h2 style="text-align: center; color: #f5576c; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem;">To The Love of My Life</h2>
+                <p style="font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #f5576c;">My Dearest xyz,</p>
+                <p style="margin: 1.5rem 0;">Words can never fully capture how much you mean to me, but on this Valentine's Day, I want to try. You are the most incredible person I have ever known, and loving you is the easiest and most natural thing I have ever done.</p>
+                <p style="margin: 1.5rem 0;">Every moment with you is a treasure I hold close to my heart. Whether we're sharing laughter over silly jokes, having deep conversations late into the night, exploring new places together, or simply sitting in comfortable silence, being with you feels like coming home.</p>
+                <p style="margin: 1.5rem 0;">You make me want to be a better person every single day. Your strength inspires me to be braver. Your kindness humbles me and makes me want to be more compassionate. Your love completes me in ways I never knew were possible.</p>
+                <p style="margin: 1.5rem 0;">Thank you for choosing me, for loving me with all my flaws, for being patient with me when I'm difficult, for laughing with me at the silliest things, and for making my life infinitely better just by being in it.</p>
+                <p style="margin: 1.5rem 0;">I promise to cherish you, support you, make you laugh, hold you when you cry, celebrate your victories, and stand by you through every challenge. You are my best friend, my partner, my love, and my forever.</p>
+                <p style="margin: 1.5rem 0; font-weight: bold; color: #f5576c;">I love you more than yesterday, less than tomorrow, and with all my heart today and always.</p>
+                <p style="text-align: right; font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #f5576c; margin-top: 3rem;">Forever Yours,<br>Your Person 💕</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // Initialize Particles
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ff6b9d' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#ff6b9d', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: true, out_mode: 'out' }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            }
+        });
+
+        // Cursor Trail Effect
+        document.addEventListener('mousemove', function(e) {
+            const heart = document.createElement('div');
+            heart.className = 'cursor-trail';
+            heart.innerHTML = '❤️';
+            heart.style.left = e.pageX + 'px';
+            heart.style.top = e.pageY + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 1000);
+        });
+
+        // Countdown Timer
+        const startDate = new Date('2026-02-14'); // Change this to your relationship start date
+        function updateCountdown() {
+            const now = new Date();
+            const diff = now - startDate;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 3D Carousel Setup
+        const carousel3d = document.getElementById('carousel-3d');
+        const numPhotos = 8;
+        const angle = 360 / numPhotos;
+
+        // ====== ADD YOUR PHOTO FILENAMES HERE ======
+        // If uploading photos to GitHub, just put the filename here
+        // Example: 'photo1.jpg', 'vacation.jpg', 'us-at-beach.png', etc.
+        const carouselPhotos = [
+            'assets\\1.jpeg', 
+            'assets\\2.jpeg', // Photo 2 - Change to your filename
+            'assets\\3.jpeg', // Photo 3 - Change to your filename
+            'assets\\4.jpeg', // Photo 4 - Change to your filename
+            'assets\\5.jpeg', // Photo 5 - Change to your filename
+            'assets\\6.jpeg', // Photo 6 - Change to your filename
+            'assets\\7.jpeg', // Photo 7 - Change to your filename
+            'assets\\8.jpeg'  // Photo 8 - Change to your filename
+        ];
+        
+
+        const placeholderEmojis = ['💕', '❤️', '💖', '💝', '💗', '💓', '💞', '💘'];
+
+        for (let i = 0; i < numPhotos; i++) {
+            const item = document.createElement('div');
+            item.className = 'carousel-item';
+            item.style.transform = `rotateY(${i * angle}deg) translateZ(400px)`;
+            
+            // If photo filename is provided, use it; otherwise show placeholder
+            if (carouselPhotos[i] && carouselPhotos[i].trim() !== '') {
+                item.innerHTML = `<img src="${carouselPhotos[i]}" alt="Our moment ${i + 1}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            } else {
+                item.innerHTML = `<div class="carousel-placeholder">${placeholderEmojis[i]}</div>`;
+            }
+            
+            carousel3d.appendChild(item);
+        }
+
+        // Pause/Play carousel on click
+        carousel3d.addEventListener('click', function() {
+            this.classList.toggle('paused');
+        });
+
+        // Message Bottles
+        const messages = [
+            "You are my sunshine on the cloudiest days. Your presence brightens everything around me.",
+            "Every love song suddenly makes sense when I think of you. You are my melody.",
+            "Thank you for loving me at my worst and celebrating me at my best. You see the real me.",
+            "Distance means nothing when someone means everything. You are my everything.",
+            "I never knew what home felt like until I met you. You are my safe place."
+        ];
+
+        document.querySelectorAll('.bottle').forEach((bottle, index) => {
+            bottle.addEventListener('click', function() {
+                this.classList.add('opened');
+                document.getElementById('popup-title').textContent = `Love Message ${index + 1}`;
+                document.getElementById('popup-message').textContent = messages[index];
+                document.getElementById('message-popup').classList.add('show');
+            });
+        });
+
+        document.getElementById('close-popup').addEventListener('click', function() {
+            document.getElementById('message-popup').classList.remove('show');
+        });
+
+        // Memory Game
+        const emojis = ['💕', '❤️', '💖', '💝', '💗', '💓', '💞', '💘'];
+        let gameEmojis = [...emojis, ...emojis].sort(() => Math.random() - 0.5);
+        const memoryGame = document.getElementById('memory-game');
+        let flippedCards = [];
+        let matchedPairs = 0;
+
+        // Encouraging messages while playing
+        const encouragingMessages = [
+            "You're doing amazing! 💕",
+            "So close! Keep going! ❤️",
+            "Nice match! 💖",
+            "You're a natural! 💝",
+            "Almost there, beautiful! 💗",
+            "Great job! 💓"
+        ];
+
+        function initializeGame() {
+            memoryGame.innerHTML = '';
+            flippedCards = [];
+            matchedPairs = 0;
+            gameEmojis = [...emojis, ...emojis].sort(() => Math.random() - 0.5);
+            document.getElementById('game-message').innerHTML = '';
+            document.getElementById('reset-game').style.display = 'none';
+
+            gameEmojis.forEach((emoji, index) => {
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.innerHTML = `
+                    <div class="card-front">❤️</div>
+                    <div class="card-back">${emoji}</div>
+                `;
+                card.dataset.emoji = emoji;
+                card.addEventListener('click', flipCard);
+                memoryGame.appendChild(card);
+            });
+        }
+
+        // Initialize game on load
+        initializeGame();
+
+        // Reset button
+        document.getElementById('reset-game').addEventListener('click', initializeGame);
+
+        function flipCard() {
+            if (flippedCards.length < 2 && !this.classList.contains('flip')) {
+                this.classList.add('flip');
+                flippedCards.push(this);
+
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 600);
+                }
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            const gameMessage = document.getElementById('game-message');
+            
+            if (card1.dataset.emoji === card2.dataset.emoji) {
+                matchedPairs++;
+                flippedCards = [];
+                
+                if (matchedPairs === emojis.length) {
+                    // Array of cute victory messages - randomly chosen each time she wins
+                    const victoryMessages = [
+                        {
+                            title: "🎉 YOU WON! 🎉",
+                            main: "Perfect Match! Just like us! 💕",
+                            quote: "You found all the matching hearts...<br>just like how I found my perfect match in you! ❤️"
+                        },
+                        {
+                            title: "✨ AMAZING! ✨",
+                            main: "You're incredible! 💖",
+                            quote: "Every heart found its pair, and my heart found you!<br>We're the perfect match! 💝"
+                        },
+                        {
+                            title: "🌟 BRILLIANT! 🌟",
+                            main: "You matched them all! 💗",
+                            quote: "Like these hearts, we were meant to find each other<br>in this beautiful game of love! 💞"
+                        },
+                        {
+                            title: "💫 SPECTACULAR! 💫",
+                            main: "Flawless victory! 💕",
+                            quote: "Your memory is as beautiful as you are!<br>And I'll never forget how much I love you! 💖"
+                        },
+                        {
+                            title: "🎊 INCREDIBLE! 🎊",
+                            main: "You did it perfectly! 💝",
+                            quote: "Every pair you matched reminds me that<br>we're destined to be together forever! 💗"
+                        },
+                        {
+                            title: "🌹 WONDERFUL! 🌹",
+                            main: "You're my champion! 💓",
+                            quote: "Just like you matched every heart here,<br>you've captured mine completely! 💘"
+                        }
+                    ];
+                    
+                    // Pick a random victory message
+                    const randomVictory = victoryMessages[Math.floor(Math.random() * victoryMessages.length)];
+                    
+                    // Display the victory message
+                    gameMessage.innerHTML = `
+                        <div style="animation: fadeInUp 1s ease-out;">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);">
+                                ${randomVictory.title}
+                            </div>
+                            <div style="font-size: 1.8rem; color: #ff6b9d; margin-bottom: 1rem; font-weight: bold;">
+                                ${randomVictory.main}
+                            </div>
+                            <div style="font-size: 1.2rem; opacity: 0.95; font-style: italic; line-height: 1.8;">
+                                "${randomVictory.quote}"
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Trigger confetti
+                    triggerConfetti();
+                    
+                    // Show reset button
+                    document.getElementById('reset-game').style.display = 'inline-block';
+                    
+                    // Heart explosion effect from center
+                    setTimeout(() => {
+                        for (let i = 0; i < 24; i++) {
+                            setTimeout(() => {
+                                const heart = document.createElement('div');
+                                const heartEmojis = ['💖', '💕', '💗', '💝', '💓', '💞', '💘', '❤️'];
+                                heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                                heart.style.position = 'fixed';
+                                heart.style.left = '50%';
+                                heart.style.top = '50%';
+                                heart.style.fontSize = (Math.random() * 25 + 25) + 'px';
+                                heart.style.zIndex = '9999';
+                                heart.style.pointerEvents = 'none';
+                                document.body.appendChild(heart);
+
+                                const angle = (Math.PI * 2 * i) / 24;
+                                const velocity = Math.random() * 250 + 150;
+                                const tx = Math.cos(angle) * velocity;
+                                const ty = Math.sin(angle) * velocity;
+                                
+                                heart.animate([
+                                    { 
+                                        transform: 'translate(-50%, -50%) translate(0, 0) scale(0) rotate(0deg)', 
+                                        opacity: 1 
+                                    },
+                                    { 
+                                        transform: `translate(-50%, -50%) translate(${tx}px, ${ty}px) scale(1.5) rotate(${Math.random() * 720 - 360}deg)`, 
+                                        opacity: 0 
+                                    }
+                                ], {
+                                    duration: 2500,
+                                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                                });
+
+                                setTimeout(() => heart.remove(), 2500);
+                            }, i * 40);
+                        }
+                    }, 400);
+                    
+                    // Add an extra sweet message after a delay
+                    setTimeout(() => {
+                        const extraMessages = [
+                            "Every moment with you is a victory! 💖✨",
+                            "You win at this game, and you've won my heart! 💕🏆",
+                            "Perfect score for my perfect person! 💗⭐",
+                            "You're my favorite player in the game of love! 💝🎮",
+                            "Together we're unbeatable! 💞👑"
+                        ];
+                        const randomExtra = extraMessages[Math.floor(Math.random() * extraMessages.length)];
+                        
+                        gameMessage.innerHTML += `
+                            <div style="margin-top: 1.5rem; font-size: 1.2rem; animation: fadeInUp 1s ease-out; 
+                                        padding: 1rem; background: rgba(255, 107, 157, 0.1); 
+                                        border-radius: 15px; border: 2px solid rgba(255, 107, 157, 0.3);">
+                                ${randomExtra}
+                            </div>
+                        `;
+                    }, 2500);
+                } else {
+                    // Show encouraging message for successful match
+                    const randomMessage = encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)];
+                    gameMessage.innerHTML = `<span style="animation: fadeInUp 0.5s ease-out;">${randomMessage} (${matchedPairs}/${emojis.length})</span>`;
+                }
+            } else {
+                // Not a match - show motivating message
+                gameMessage.innerHTML = `<span style="opacity: 0.7;">Try again! You've got this! 💪</span>`;
+                setTimeout(() => {
+                    card1.classList.remove('flip');
+                    card2.classList.remove('flip');
+                    flippedCards = [];
+                }, 400);
+            }
+        }
+
+        // Stars Canvas
+        const canvas = document.getElementById('stars-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const stars = [];
+        class Star {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 3 + 1;
+                this.speed = Math.random() * 0.5 + 0.1;
+                this.opacity = Math.random();
+            }
+            update() {
+                this.opacity += this.speed;
+                if (this.opacity > 1 || this.opacity < 0) this.speed = -this.speed;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 150; i++) {
+            stars.push(new Star(Math.random() * canvas.width, Math.random() * canvas.height));
+        }
+
+        canvas.addEventListener('mousemove', (e) => {
+            stars.push(new Star(e.clientX, e.clientY));
+            if (stars.length > 200) stars.shift();
+        });
+
+        function animateStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            requestAnimationFrame(animateStars);
+        }
+        animateStars();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Love Calculator
+        let loveCalculated = false;
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            if (loveCalculated) return; // Prevent multiple clicks
+            
+            const loveFill = document.getElementById('love-fill');
+            const percentage = document.getElementById('love-percentage');
+            const result = document.getElementById('love-result');
+            const button = this;
+            
+            // Disable button
+            button.disabled = true;
+            button.style.opacity = '0.6';
+            button.style.cursor = 'not-allowed';
+            
+            // Show transition message
+            result.textContent = 'Adding your love to mine... 💕';
+            
+            // Animate from 50% to 100%
+            setTimeout(() => {
+                loveFill.style.transition = 'width 2s ease-out';
+                loveFill.style.width = '100%';
+                
+                // Animate percentage counter
+                let currentPercent = 50;
+                const interval = setInterval(() => {
+                    currentPercent += 2;
+                    if (currentPercent >= 100) {
+                        currentPercent = 100;
+                        clearInterval(interval);
+                    }
+                    percentage.textContent = currentPercent + '%';
+                }, 40);
+                
+                // Show final message after animation
+                setTimeout(() => {
+                    result.innerHTML = '🎉 <strong>Perfect!</strong> My 50% + Your 50% = 100% Pure Love!<br><span style="font-size: 1rem; opacity: 0.9;">Together we are complete! 💖</span>';
+                    triggerConfetti();
+                    loveCalculated = true;
+                }, 2000);
+            }, 500);
+        });
+
+        // Confetti Effect
+        function triggerConfetti() {
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.innerHTML = ['🎉', '💕', '❤️', '⭐', '💖'][Math.floor(Math.random() * 5)];
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-50px';
+                    confetti.style.fontSize = Math.random() * 30 + 20 + 'px';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.pointerEvents = 'none';
+                    document.body.appendChild(confetti);
+
+                    const duration = Math.random() * 3 + 2;
+                    const rotation = Math.random() * 720 - 360;
+                    
+                    confetti.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(${window.innerHeight}px) rotate(${rotation}deg)`, opacity: 0 }
+                    ], {
+                        duration: duration * 1000,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
+
+                    setTimeout(() => confetti.remove(), duration * 1000);
+                }, i * 30);
+            }
+        }
+
+        document.getElementById('confetti-btn').addEventListener('click', triggerConfetti);
+
+        // Music Player (Add your own music URL)
+        let audio = null;
+        let isPlaying = false;
+
+        document.getElementById('music-player').addEventListener('click', function() {
+            // Replace with your music URL
+            // const musicUrl = 'your-romantic-song.mp3';
+            
+            if (!audio) {
+                // audio = new Audio(musicUrl);
+                // audio.loop = true;
+                alert('Add your favorite romantic song URL in the JavaScript code!');
+                return;
+            }
+
+            if (isPlaying) {
+                audio.pause();
+                document.getElementById('music-icon').classList.remove('playing');
+                document.getElementById('music-status').textContent = 'Play Music';
+            } else {
+                audio.play();
+                document.getElementById('music-icon').classList.add('playing');
+                document.getElementById('music-status').textContent = 'Pause Music';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .reason-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Video placeholder click
+        document.getElementById('video-placeholder').addEventListener('click', function() {
+            alert('Add your video embed code or YouTube link here!\n\nExample: Replace this placeholder with:\n<iframe width="100%" height="100%" src="YOUR_VIDEO_URL" frameborder="0" allowfullscreen></iframe>');
+        });
+    </script>
+</body>
+</html>
